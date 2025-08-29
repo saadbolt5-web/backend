@@ -2,28 +2,32 @@
 
 ## 1. Email Configuration (CRITICAL)
 
-### Gmail Setup (Recommended)
-1. **Enable 2-Factor Authentication:**
-   - Go to your Google Account settings
-   - Navigate to Security > 2-Step Verification
-   - Follow the setup process
+### Saher Flow Email Setup
+Your email is configured as: `saad.mahmood@saherflow.com`
 
-2. **Generate App Password:**
-   - Go to Google Account Settings > Security
-   - Click on "App passwords" (you need 2FA enabled first)
-   - Select "Mail" and your device type
-   - Copy the 16-character password (format: xxxx xxxx xxxx xxxx)
+**You need to get the following information from your email provider:**
 
-3. **Update .env file:**
+1. **SMTP Server Settings:**
+   - Host (currently set to Gmail's SMTP)
+   - Port (currently 587)
+   - Security type (TLS/SSL)
+
+2. **Authentication:**
+   - Your email password or app-specific password
+   - Update `EMAIL_PASS` in `.env` file
+
+3. **Common SMTP Settings by Provider:**
+   - **Gmail:** `smtp.gmail.com:587` (TLS)
+   - **Outlook:** `smtp-mail.outlook.com:587` (TLS)
+   - **Custom Domain:** Contact your hosting provider for SMTP settings
+
+4. **Update .env file:**
    ```
-   EMAIL_USER=your-actual-gmail@gmail.com
-   EMAIL_PASS=your-16-character-app-password-no-spaces
+   EMAIL_HOST=your-smtp-server
+   EMAIL_PORT=587
+   EMAIL_USER=saad.mahmood@saherflow.com
+   EMAIL_PASS=your-email-password
    ```
-
-### Alternative Email Providers
-- **Outlook/Hotmail:** Use `smtp-mail.outlook.com` port 587
-- **Yahoo:** Use `smtp.mail.yahoo.com` port 587
-- **Custom SMTP:** Update host and port accordingly
 
 ## 2. Database Setup Verification
 
