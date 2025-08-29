@@ -2,13 +2,14 @@ const express = require('express');
 const { body, validationResult } = require('express-validator');
 const User = require('../models/User');
 const { protect, admin } = require('../middleware/auth');
+const { requireEmailVerification } = require('../middleware/emailVerification');
 
 const router = express.Router();
 
 // @desc    Update user profile
 // @route   PUT /api/user/profile
 // @access  Private
-router.put('/profile', protect, [
+router.put('/profile', protect, requireEmailVerification, [
   body('firstName')
     .optional()
     .trim()
