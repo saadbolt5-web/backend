@@ -1,13 +1,13 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const crypto = require('crypto');
-const User = require('../models/User');
 const generateToken = require('../utils/generateToken');
 const sendEmail = require('../utils/sendEmail');
 const { getWelcomeEmailTemplate, getPasswordResetEmailTemplate } = require('../utils/emailTemplates');
 const { protect } = require('../middleware/auth');
 const { requireEmailVerification } = require('../middleware/emailVerification');
 const { validateCompanyDomain } = require('../middleware/domainValidation');
+const User = require('../models/User');
 
 const router = express.Router();
 
